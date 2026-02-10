@@ -37,20 +37,31 @@ This project demonstrates practical **system engineering and Linux service manag
 
 ## 🧠 Architecture Overview
 
-The project follows a **modular architecture with clear separation of concerns**.  
-Each component is responsible for a specific task, making the system scalable and easy to maintain.
+The System Health Monitoring Agent follows a **modular, layered architecture**
+where each component has a single, well-defined responsibility.
+The service lifecycle is managed by **systemd**, while application logic
+is handled by independent Python modules.
 
 systemd
-│
-▼
-monitor.py
-│
-├── metrics.py → Collects system metrics
-├── alerts.py → Evaluates thresholds and raises alerts
-├── logger.py → Handles logging
-├── mailer.py → Sends email alerts (optional)
-└── session_tracker.py → Tracks service start/stop events
+└── system-health-monitor.service
+    └── monitor.py                     # Main orchestrator (entry point)
+        ├── metrics.py                 # Collects CPU, memory, disk metrics
+        ├── alerts.py                  # Evaluates thresholds and raises alerts
+        ├── logger.py                  # Centralized logging mechanism
+        ├── mailer.py                  # Sends email alerts (optional)
+        ├── session_tracker.py         # Tracks service start/stop sessions
+        └── config.py                  # Thresholds and configuration
 
+### Architectural Flow
+
+- **systemd** manages service startup, restart, and shutdown
+- **monitor.py** controls the monitoring loop and coordinates all modules
+- Metrics are collected, evaluated, logged, and alerted in a structured flow
+- On shutdown, the service exits gracefully after logging session details
+
+This design ensures **maintainability, scalability, and production readiness**.
+
+---
 
 ## 📂 Repository Structure
 
