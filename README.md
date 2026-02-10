@@ -183,3 +183,35 @@ The agent supports email notifications for alerts.
 
 ---
 
+---
+
+## 🚀 Future Enhancements
+
+The following improvements can be added to extend this project further:
+
+- Alert cooldown and deduplication
+- Prometheus metrics exporter
+- Web-based dashboard (Flask / FastAPI)
+- Slack / Webhook notifications
+- Dockerized deployment
+- Multi-host monitoring support
+
+---
+
+## 👨‍💻 Author
+
+**Srikumaran S.S.**  
+B.Tech Electrical and Electronics Engineering  
+National Institute of Technology, Tiruchirappalli  
+
+GitHub: https://github.com/Srikumaran5557
+
+---
+
+## 📌 Closing Note
+
+This project was built to demonstrate **practical system engineering concepts**
+such as Linux service management, resource monitoring, logging, and alerting.
+It is designed with real-world deployment and maintainability in mind.
+
+
