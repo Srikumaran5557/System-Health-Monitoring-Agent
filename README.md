@@ -1,61 +1,47 @@
-Perfect. Below is a **complete, clean, professional README** you can **copy-paste in one shot**.
-This is written at a **system engineer / SRE resume level**, not student level.
-
-You don’t need to edit anything immediately — you can improve it later as the project evolves.
-
----
-
-```markdown
 # 🖥️ System Health Monitoring Agent
 
-A **production-style Linux system monitoring agent** written in Python that continuously tracks system health (CPU, memory, disk), logs metrics, raises alerts, and runs automatically at system startup using **systemd**.
+---
 
-This project is designed to demonstrate **system engineering fundamentals**, including service management, monitoring, logging, alerting, and deployment on Linux.
+## 📌 Project Overview
+
+The **System Health Monitoring Agent** is a Linux-based monitoring service developed in **Python** that continuously tracks critical system resources such as **CPU usage, memory usage, and disk usage**.  
+It runs as a **background service managed by systemd**, automatically starting on system boot, logging system health metrics, and generating alerts when predefined thresholds are exceeded.
+
+This project demonstrates practical **system engineering and Linux service management skills**, including monitoring, logging, alerting, and daemonized application deployment.
 
 ---
 
-## 🚀 Features
+## 🛠️ Technologies Used
 
-- 📊 Monitors system resources:
-  - CPU usage
-  - Memory usage
-  - Disk usage
-- ⏱️ Periodic health checks (configurable interval)
-- 🚨 Threshold-based alert generation
-- 📝 Centralized logging of metrics and alerts
-- 🔁 Automatic startup on boot using `systemd`
-- 🛑 Graceful shutdown handling (SIGTERM)
-- 📬 Email notifications support (optional)
-- 📁 Clean Git practices (`.gitignore`, no venv committed)
+- **Python 3** – Core programming language
+- **psutil** – System resource monitoring
+- **Linux** – Target operating system
+- **systemd** – Service management and auto-start on boot
+- **SMTP (optional)** – Email-based alert notifications
+- **Git & GitHub** – Version control and collaboration
+- **Python Virtual Environment (venv)** – Dependency isolation
+
+---
+
+## 🔁 Project Workflow
+
+1. The system boots and `systemd` starts the monitoring service automatically.
+2. The main monitoring loop executes at regular intervals.
+3. System metrics (CPU, memory, disk usage) are collected.
+4. Metrics are logged for auditing and troubleshooting.
+5. Collected values are compared against configured thresholds.
+6. If a threshold is exceeded:
+   - An alert is generated
+   - Optional email notification is sent
+7. On system shutdown, the service receives a termination signal and exits gracefully after logging the shutdown event.
 
 ---
 
 ## 🧠 Architecture Overview
 
-The project follows a **modular and separation-of-concerns architecture**:
+The project follows a **modular architecture with clear separation of concerns**.  
+Each component is responsible for a specific task, making the system scalable and easy to maintain.
 
-```
-
-┌──────────────────────┐
-│  systemd service     │
-│  (startup control)   │
-└──────────┬───────────┘
-│
-▼
-┌──────────────────────┐
-│   monitor.py         │  ← Main orchestration loop
-└──────────┬───────────┘
-│
-┌─────────┼─────────┬─────────┐
-▼         ▼         ▼         ▼
-Metrics   Alerts   Logger   Mailer
-(cpu,     (rules)  (logs)   (email)
-memory,
-disk)
-
-```
-
----
 
 ## 📂 Repository Structure
 
@@ -77,18 +63,6 @@ System-Health-Monitoring-Agent/
 
 ---
 
-## ⚙️ Configuration
-
-### Thresholds (`config.py`)
-```python
-CPU_THRESHOLD = 80
-MEMORY_THRESHOLD = 75
-DISK_THRESHOLD = 85
-````
-
-Modify these values based on your system requirements.
-
----
 
 ## 🛠️ Installation & Setup
 
@@ -185,70 +159,3 @@ The agent supports email notifications for alerts.
 
 ---
 
-## 🔐 Security & Best Practices
-
-* Virtual environment excluded from Git
-* Logs excluded from Git
-* Modular code structure
-* No hardcoded secrets
-* Graceful shutdown handling
-
----
-
-## 📈 Future Enhancements
-
-* Alert deduplication & cooldown logic
-* Prometheus metrics exporter
-* Web dashboard (Flask / FastAPI)
-* JSON structured logging
-* Multi-host monitoring support
-* Dockerized deployment
-
----
-
-## 🧑‍💻 Author
-
-**Srikumaran S.S.**
-B.Tech Electrical & Electronics Engineering
-NIT Trichy
-
-GitHub: [https://github.com/Srikumaran5557](https://github.com/Srikumaran5557)
-
----
-
-## 📜 License
-
-This project is open-source and intended for educational and learning purposes.
-
-```
-
----
-
-## ✅ What you should do now
-
-1. Open `README.md` in VS Code  
-2. Paste everything above  
-3. Save  
-4. Commit **only `README.md`**
-5. Push to GitHub
-
----
-
-## 🔥 Brutally honest feedback
-
-This README + your systemd setup puts you **ahead of 80% of students** applying for:
-- System Engineer
-- SRE Intern
-- Linux / DevOps roles
-
-Next *real* upgrade (when you’re ready):
-- Add Prometheus exporter  
-- Or add a simple dashboard
-
-If you want, I can:
-- Rewrite this README for **resume keywords**
-- Prepare **interview explanation** for this project
-- Suggest **one more project** that pairs perfectly with this
-
-Just tell me.
-```
