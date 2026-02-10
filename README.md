@@ -1,7 +1,5 @@
 # 🖥️ System Health Monitoring Agent
 
----
-
 ## 📌 Project Overview
 
 The **System Health Monitoring Agent** is a Linux-based monitoring service developed in **Python** that continuously tracks critical system resources such as **CPU usage, memory usage, and disk usage**.  
@@ -41,6 +39,17 @@ This project demonstrates practical **system engineering and Linux service manag
 
 The project follows a **modular architecture with clear separation of concerns**.  
 Each component is responsible for a specific task, making the system scalable and easy to maintain.
+
+systemd
+│
+▼
+monitor.py
+│
+├── metrics.py → Collects system metrics
+├── alerts.py → Evaluates thresholds and raises alerts
+├── logger.py → Handles logging
+├── mailer.py → Sends email alerts (optional)
+└── session_tracker.py → Tracks service start/stop events
 
 
 ## 📂 Repository Structure
