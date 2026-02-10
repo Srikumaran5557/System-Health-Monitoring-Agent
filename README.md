@@ -42,6 +42,8 @@ where each component has a single, well-defined responsibility.
 The service lifecycle is managed by **systemd**, while application logic
 is handled by independent Python modules.
 
+```
+
 systemd
 └── system-health-monitor.service
     └── monitor.py                     # Main orchestrator (entry point)
@@ -51,6 +53,8 @@ systemd
         ├── mailer.py                  # Sends email alerts (optional)
         ├── session_tracker.py         # Tracks service start/stop sessions
         └── config.py                  # Thresholds and configuration
+
+````
 
 ### Architectural Flow
 
